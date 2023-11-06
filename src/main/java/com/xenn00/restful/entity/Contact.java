@@ -30,7 +30,7 @@ public class Contact {
     private String phone;
 
     @ManyToOne
-    @JoinColumn(name = "id_user_contact", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     @OneToMany(mappedBy = "contact")

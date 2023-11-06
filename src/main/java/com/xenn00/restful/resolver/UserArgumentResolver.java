@@ -38,7 +38,7 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
         }
 
         User user = userRpository.findFirstByToken(token).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Please login to your account!"));
+                () -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized"));
 
         if (user.getTokenExpiredAt() < System.currentTimeMillis()) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Please login to your account!");
